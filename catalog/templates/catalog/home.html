@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Каталог растений для букетов и композиций</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'catalog/css/styles.css' %}">
+</head>
+<body>
+    <h1>Каталог растений для букетов и композиций</h1>
+    <div class="container">
+        {% for category in categories %}
+            <div class="card">
+                <a href="{% url 'category_detail' category.id %}">
+                    <div class="banner">
+                        <img src="{{ category.banner.url }}" alt="{{ category.name }}">
+                        <p>{{ category.name }}</p>
+                    </div>
+                </a>
+            </div>
+        {% endfor %}
+    </div>
+</body>
+</html>

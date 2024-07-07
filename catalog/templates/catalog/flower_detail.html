@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ flower.name }}</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'catalog/css/styles.css' %}">
+</head>
+<body>
+    <div class="navbar">
+        <a href="{% url 'category_detail' flower.category.id %}">Назад к категории</a>
+        <a href="{% url 'home' %}">Назад на главную</a>
+    </div>
+    <h1>{{ flower.name }}</h1>
+    <div class="card">
+        <img src="{{ flower.image.url }}" alt="{{ flower.name }}">
+        <p>{{ flower.description }}</p>
+    </div>
+</body>
+</html>

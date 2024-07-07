@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ category.name }}</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'catalog/css/styles.css' %}">
+</head>
+<body>
+    <div class="navbar">
+        <a href="{% url 'home' %}">Назад на главную</a>
+    </div>
+    <h1>{{ category.name }}</h1>
+    <div class="container">
+        {% for flower in flowers %}
+            <div class="card">
+                <a href="{% url 'flower_detail' flower.id %}">
+                    <div class="banner">
+                        <img src="{{ flower.image.url }}" alt="{{ flower.name }}">
+                        <p>{{ flower.name }}</p>
+                    </div>
+                </a>
+            </div>
+        {% endfor %}
+    </div>
+</body>
+</html>
